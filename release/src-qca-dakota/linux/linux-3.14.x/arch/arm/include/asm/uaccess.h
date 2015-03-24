@@ -267,7 +267,7 @@ do {									\
 	__asm__ __volatile__(					\
 	"1:	" TUSER(ldrb) "	%1,[%2],#0\n"			\
 	"2:\n"							\
-	"	.pushsection .fixup,\"ax\"\n"			\
+	"	.pushsection .text.fixup,\"ax\"\n"			\
 	"	.align	2\n"					\
 	"3:	mov	%0, %3\n"				\
 	"	mov	%1, #0\n"				\
@@ -303,7 +303,7 @@ do {									\
 	__asm__ __volatile__(					\
 	"1:	" TUSER(ldr) "	%1,[%2],#0\n"			\
 	"2:\n"							\
-	"	.pushsection .fixup,\"ax\"\n"			\
+	"	.pushsection .text.fixup,\"ax\"\n"			\
 	"	.align	2\n"					\
 	"3:	mov	%0, %3\n"				\
 	"	mov	%1, #0\n"				\
@@ -349,7 +349,7 @@ do {									\
 	__asm__ __volatile__(					\
 	"1:	" TUSER(strb) "	%1,[%2],#0\n"			\
 	"2:\n"							\
-	"	.pushsection .fixup,\"ax\"\n"			\
+	"	.pushsection .text.fixup,\"ax\"\n"			\
 	"	.align	2\n"					\
 	"3:	mov	%0, %3\n"				\
 	"	b	2b\n"					\
@@ -382,7 +382,7 @@ do {									\
 	__asm__ __volatile__(					\
 	"1:	" TUSER(str) "	%1,[%2],#0\n"			\
 	"2:\n"							\
-	"	.pushsection .fixup,\"ax\"\n"			\
+	"	.pushsection .text.fixup,\"ax\"\n"			\
 	"	.align	2\n"					\
 	"3:	mov	%0, %3\n"				\
 	"	b	2b\n"					\
@@ -410,7 +410,7 @@ do {									\
  THUMB(	"1:	" TUSER(str) "	" __reg_oper1 ", [%1]\n"	) \
  THUMB(	"2:	" TUSER(str) "	" __reg_oper0 ", [%1, #4]\n"	) \
 	"3:\n"							\
-	"	.pushsection .fixup,\"ax\"\n"			\
+	"	.pushsection .text.fixup,\"ax\"\n"			\
 	"	.align	2\n"					\
 	"4:	mov	%0, %3\n"				\
 	"	b	3b\n"					\
