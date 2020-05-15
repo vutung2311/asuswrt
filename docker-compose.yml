@@ -1,0 +1,9 @@
+version: "3.0"
+
+services: 
+    firmware_builder:
+        build: .
+        stdin_open: true
+        tty: true
+        volumes:
+            - .:/usr/src/asuswrt
