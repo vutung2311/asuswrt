@@ -23,8 +23,8 @@ install: stage
 	install -m 644 $(STAGEDIR)/etc/libnl/classid $(INSTALLDIR)/../rom/rom/etc/libnl/
 
 clean:
-	find $(PKG_BUILD_DIR) -type f -name "*.o" -o -name "stage" | xargs rm -f
+	make -C source clean
+	-@rm -f stage
 
 stage:
 	$(MAKE) -C $(PKG_BUILD_DIR) DESTDIR="$(STAGEDIR)" install
-	@touch $@

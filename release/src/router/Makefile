@@ -3164,8 +3164,8 @@ lsof-install:
 	$(STRIP) $(INSTALLDIR)/lsof/usr/sbin/lsof
 
 lsof-clean:
-	( cd lsof ; ./Configure -clean )
-	@rm -f lsof/Makefile
+	-@( cd lsof ; ./Configure -clean )
+	-@rm -f lsof/Makefile
 
 mtd-utils: e2fsprogs lzo zlib
 ifeq ($(ALPINE)$(LANTIQ),y)
@@ -5694,7 +5694,7 @@ tftp:
 	cd tftp && CC=$(CC) && $(MAKE)
 
 tftp-clean:
-	cd tftp && $(MAKE) clean
+	-@(cd tftp && $(MAKE) clean)
 
 tftp-install:
 	# TPTP server
@@ -5719,7 +5719,7 @@ bwdpi_source: $(if $(RTCONFIG_HND_ROUTER),bcm_flashutil bcm_util bcm_boardctl)
 	cd bwdpi_source && CC=$(CC) && $(MAKE) all
 
 bwdpi_source-clean:
-	cd bwdpi_source && $(MAKE) clean
+	-@(cd bwdpi_source && $(MAKE) clean)
 
 bwdpi_source-install: bwdpi_source
 	cd bwdpi_source && CC=$(CC) && $(MAKE) install
@@ -5728,7 +5728,7 @@ traffic_limiter: sqlite
 	cd traffic_limiter && CC=$(CC) && $(MAKE)
 
 traffic_limiter-clean:
-	cd traffic_limiter && $(MAKE) clean
+	-@(cd traffic_limiter && $(MAKE) clean)
 
 traffic_limiter-install: traffic_limiter
 
@@ -6402,13 +6402,16 @@ ethtool-3.7-install: ethtool-3.7
 	$(STRIP) $(INSTALLDIR)/ethtool-3.7/usr/bin/ethtool
 
 libnl-bf:
-	$(MAKE) -j 8 -C $@ && $(MAKE) $@-stage
+	$(MAKE) -C $@ && $(MAKE) $@-stage
+
+libnl-bf-clean:
+	$(MAKE) -C libnl-bf clean
 
 i2c-tools-2013-12-15:
 	$(MAKE) -C $@
 
 i2c-tools-2013-12-15-clean:
-	$(MAKE) -C i2c-tools-2013-12-15 clean
+	-@$(MAKE) -C i2c-tools-2013-12-15 clean
 
 i2c-tools-2013-12-15-install: i2c-tools-2013-12-15
 	install -D i2c-tools-2013-12-15/tools/i2cdump $(INSTALLDIR)/i2c-tools-2013-12-15/usr/bin/i2cdump
@@ -6429,7 +6432,7 @@ i2c-tools-3.1.2:
 	$(MAKE) -C $@
 
 i2c-tools-3.1.2-clean:
-	$(MAKE) -C i2c-tools-3.1.2 clean
+	-@$(MAKE) -C i2c-tools-3.1.2 clean
 
 i2c-tools-3.1.2-install: i2c-tools-3.1.2
 	install -D i2c-tools-3.1.2/tools/i2cdump $(INSTALLDIR)/i2c-tools-3.1.2/usr/bin/i2cdump
@@ -7027,7 +7030,7 @@ PMS_DBapis:PMS_DBapis/stamp-h1
 	CC=$(CC) $(MAKE) -C PMS_DBapis
 
 PMS_DBapis-clean:
-	cd PMS_DBapis && $(MAKE) clean
+	-@(cd PMS_DBapis && $(MAKE) clean)
 	-@rm -f PMS_DBapis/stamp-h1
 
 PMS_DBapis-install:PMS_DBapis
