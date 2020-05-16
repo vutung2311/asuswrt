@@ -1,0 +1,15 @@
+gui/Makefile
+gui/tkpppoe
+scripts/pppoe-connect
+scripts/pppoe-init
+scripts/pppoe-init-suse
+scripts/pppoe-init-turbolinux
+scripts/pppoe-setup
+scripts/pppoe-start
+scripts/pppoe-stop
+src/Makefile
+src/config.h
+src/config.status
+src/libevent/Makefile
+src/pppoe-relay
+src/stamp-h1

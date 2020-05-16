@@ -1,0 +1,10 @@
+Makefile
+example
+example64
+examplesh
+minigzip
+minigzip64
+minigzipsh
+stamp-h1
+zconf.h
+zlib.pc

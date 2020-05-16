@@ -1,0 +1,6 @@
+Makefile
+config.status
+libgdbm.la
+libgdbm_compat.la
+libtool
+stamp-h1

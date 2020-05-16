@@ -1,0 +1,7 @@
+Makefile
+config.status
+expat_config.h
+libexpat.la
+libtool
+stamp-h1
+xmlwf/xmlwf

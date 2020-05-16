@@ -1,0 +1,7 @@
+Makefile
+config.h
+config.status
+default_options_guard.h
+dropbearmulti
+libtomcrypt/Makefile
+libtommath/Makefile

@@ -1,0 +1,6 @@
+Makefile
+config.status
+ethtool
+ethtool.*
+ethtool-config.h
+stamp-h1

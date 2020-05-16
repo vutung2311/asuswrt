@@ -1,0 +1,16 @@
+Makefile
+chat/Makefile
+chat/chat
+pppd/Makefile
+pppd/plugins/Makefile
+pppd/plugins/pppoatm/Makefile
+pppd/plugins/pppol2tp/Makefile
+pppd/plugins/pptp/Makefile
+pppd/plugins/radius/Makefile
+pppd/plugins/rp-pppoe/Makefile
+pppd/pppd
+pppdump/Makefile
+pppdump/pppdump
+pppstats/Makefile
+pppstats/pppstats
+stamp-h1

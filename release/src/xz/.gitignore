@@ -1,0 +1,10 @@
+ABOUT-NLS
+Doxyfile
+Makefile
+Makefile.in
+config.h
+config.h.in
+config.status
+configure
+libtool
+stamp-h1

@@ -1,0 +1,14 @@
+!.gitignore
+*.o
+*.oo
+*.so
+*.so.*
+*.gmo
+*.a
+*.lo
+.deps
+.libs
+*.m4
+*.d
+*.depend
+*.log

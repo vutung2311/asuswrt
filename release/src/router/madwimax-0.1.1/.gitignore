@@ -1,0 +1,15 @@
+Makefile
+config.status
+include/Makefile
+include/config.h
+include/madwimax_version.h
+include/stamp-h1
+man/Makefile
+scripts/Makefile
+scripts/events/Makefile
+scripts/events/event.sh
+scripts/udev/Makefile
+scripts/udev/z60_madwimax.rules
+src/Makefile
+src/madwimax
+stamp-h1

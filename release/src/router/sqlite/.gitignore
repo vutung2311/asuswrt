@@ -1,0 +1,7 @@
+Makefile
+config.status
+libsqlite3.la
+libtool
+sqlite3
+sqlite3.pc
+stamp-h1

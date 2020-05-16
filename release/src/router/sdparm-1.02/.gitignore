@@ -1,0 +1,7 @@
+Makefile
+config.h
+config.status
+doc/Makefile
+src/Makefile
+src/sdparm
+stamp-h1

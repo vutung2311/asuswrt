@@ -1,0 +1,7 @@
+.config
+.config.*
+arm-uclibc/
+config_current
+config_rt-ac58u
+extendno.conf
+kernel_header/

@@ -1,0 +1,11 @@
+Makefile
+config.h
+config.status
+json-c-uninstalled.pc
+json-c.pc
+json_config.h
+libjson-c.la
+libtool
+stamp-h1
+stamp-h2
+tests/Makefile

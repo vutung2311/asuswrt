@@ -1,0 +1,10 @@
+config.h
+miniupnpd
+miniupnpdctl
+testasyncsendto
+testgetifaddr
+testgetifstats
+testgetroute
+testportinuse
+testupnpdescgen
+testupnppermissions

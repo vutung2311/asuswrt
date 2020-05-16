@@ -1,0 +1,10 @@
+Makefile
+config.h
+config.status
+examples/Makefile
+libtool
+libusb-config
+libusb.pc
+libusb/Makefile
+libusb/libusb.la
+stamp-h1
