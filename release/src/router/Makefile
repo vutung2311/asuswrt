@@ -88,8 +88,10 @@ MODEL = $(subst -,_,$(BUILD_NAME))
 else
 MODEL = $(subst -,,$(subst +,P,$(BUILD_NAME)))
 endif
+ifneq (,$(MODEL))
 export CFLAGS += -D$(MODEL)
 export $(MODEL)=y
+endif
 
 export OLD_SRC=$(SRCBASE)/../src
 ifeq ($(RTCONFIG_REALTEK),y)
