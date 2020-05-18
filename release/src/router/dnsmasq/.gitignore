@@ -1,2 +1,2 @@
-src/.copts_c6e598d6085c0e8a012c7b1ea58cb6b6
+src/.*
 src/dnsmasq
