@@ -7463,7 +7463,7 @@ predeps=""
 
 # Dependencies to place after the objects being linked to create a
 # shared library.
-postdeps="-lstdc++ -lm -lgcc_s -lc -lgcc_s"
+postdeps="-lstdc++ -lm -lc -lgcc_s"
 
 # The library search path used internally by the compiler when linking
 # a shared library.

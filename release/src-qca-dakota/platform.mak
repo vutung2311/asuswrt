@@ -15,8 +15,8 @@ export ARCH := arm
 export HOST := arm-linux
 export KERNELCC := $(CROSS_COMPILE)gcc
 export KERNELLD := $(CROSS_COMPILE)ld
-export TOOLS := /opt/openwrt-gcc463.arm
-export RTVER := 0.9.33.2
+export TOOLS := /opt/openwrt-gcc540.arm
+export RTVER := 1.0.14
 
 # Kernel load address and entry address
 export LOADADDR := 80208000

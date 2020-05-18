@@ -2,7 +2,7 @@ QCAHOSTAP_EXEC=$(wildcard prebuild/*)
 
 # librt.so
 CROSS_TOOLCHAIN_DIR=$(TOOLCHAIN)
-LIBRT_VERSION=0.9.33.2
+LIBRT_VERSION=1.0.14
 
 all:
 

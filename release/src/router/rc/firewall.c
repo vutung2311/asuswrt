@@ -190,7 +190,7 @@ int host_addr_info(const char *name, int af, struct sockaddr_storage *buf)
 	return (addrtypes & af);
 }
 
-inline int host_addrtypes(const char *name, int af)
+static inline int host_addrtypes(const char *name, int af)
 {
 	return host_addr_info(name, af, NULL);
 }

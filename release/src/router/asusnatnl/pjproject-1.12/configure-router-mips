@@ -39,7 +39,7 @@ fi
 
 if [ "$QCA" = "y" ]; then
 	EXTRA_CFLAGS=
-	EXTRA_LDFLAGS="-L$LIBDIR -L$LIBDIR/gcc/mips-openwrt-linux-uclibc/4.6.3 -lc -lm -ldl -lgcc_s"
+	EXTRA_LDFLAGS="-L$LIBDIR -L$LIBDIR/gcc/mips-openwrt-linux-uclibc/5.4.0 -lc -lm -ldl -lgcc_s"
 fi
 
 GDB_CFLAGS=-g

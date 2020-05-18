@@ -374,7 +374,7 @@ make_hfsplus(const DriveInfo *driveInfo, hfsparams_t *defaults)
 	if ( (temp & 0x01FF) != 0 )
 		temp = (temp + kBytesPerSector) & 0xFFFFFE00;
 	
-	nodeBuffer = valloc((size_t)temp);
+	nodeBuffer = memalign(_SC_PAGESIZE, (size_t)temp);
 	if (nodeBuffer == NULL)
 		err(1, NULL);
 
@@ -1812,7 +1812,7 @@ ClearDisk(const DriveInfo *driveInfo, UInt64 startingSector, UInt32 numberOfSect
 
 	bufferSize = bufferSizeInSectors << kLog2SectorSize;
 
-	tempBuffer = valloc((size_t)bufferSize);
+	tempBuffer = memalign(_SC_PAGESIZE, (size_t)bufferSize);
 	if (tempBuffer == NULL)
 		err(1, NULL);
 

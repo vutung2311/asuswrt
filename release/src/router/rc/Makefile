@@ -634,7 +634,7 @@ all: rc init.prep
 
 rc: $(OBJS)
 	@echo " [rc] CC $@"
-	@$(CC) -o $@ $^ $(LDFLAGS) $(CFLAGS)
+	$(CC) -o $@ $^ $(LDFLAGS) $(CFLAGS)
 
 	$(SIZECHECK)
 	$(CPTMP)

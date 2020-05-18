@@ -6,7 +6,7 @@ AUTOMAKE_OPTIONS = 1.4 foreign
 
 SUBDIRS = . tests doc
 
-AM_CFLAGS = -Werror
+AM_CFLAGS = -Werror -Wno-format-truncation
 
 configincludedir = $(pkglibdir)/include
 

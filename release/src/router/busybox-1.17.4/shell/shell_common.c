@@ -18,9 +18,7 @@
  */
 #include "libbb.h"
 #include "shell_common.h"
-#ifdef HND_ROUTER
 #include <sys/resource.h>
-#endif
 
 const char defifsvar[] ALIGN1 = "IFS= \t\n";
 

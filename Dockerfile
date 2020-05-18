@@ -49,8 +49,14 @@ RUN apt-get update && \
         libc6-dev-i386
 
 ADD tools/openwrt-gcc463.arm.tar.bz2 /opt
-ENV PATH "/opt/openwrt-gcc463.arm/bin:${PATH}"
-ENV STAGING_DIR "/opt/openwrt-gcc463.arm"
+ADD tools/openwrt-gcc540.arm.tar.xz /opt
+ENV PATH "/opt/openwrt-gcc540.arm/bin:${PATH}"
+ENV STAGING_DIR "/opt/openwrt-gcc540.arm"
+
+RUN ln -sf /opt/openwrt-gcc540.arm/lib/libuClibc-1.0.14.so /opt/openwrt-gcc540.arm/lib/libresolv.so.0 && \
+    ln -sf /opt/openwrt-gcc540.arm/lib/libuClibc-1.0.14.so /opt/openwrt-gcc540.arm/lib/libresolv.so && \
+    ln -sf /opt/openwrt-gcc540.arm/lib/libuClibc-1.0.14.so /opt/openwrt-gcc540.arm/lib/libnsl.so.0 && \
+    ln -sf /opt/openwrt-gcc540.arm/lib/libuClibc-1.0.14.so /opt/openwrt-gcc540.arm/lib/libnsl.so
 
 ENTRYPOINT [ "/bin/bash" ]
 CMD [ "-" ]

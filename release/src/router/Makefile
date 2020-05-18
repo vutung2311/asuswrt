@@ -1640,10 +1640,10 @@ gen_target:
 	else \
 		echo "platform link exists"; \
 	fi
-	@$(SEP)
+	$(SEP)
 else
 gen_target:
-	@$(SEP)
+	$(SEP)
 
 	[ -d $(TARGETDIR) ] || install -d $(TARGETDIR)
 
@@ -1766,27 +1766,47 @@ ifeq ($(RTCONFIG_SSH),y)
 	install $(LIBDIR)/libutil.so.1 $(TARGETDIR)/lib/
 endif
 else
-	install $(LIBDIR)/ld-uClibc.so.0 $(TARGETDIR)/lib/
-	install $(LIBDIR)/libcrypt.so.0 $(TARGETDIR)/lib/
-	install $(LIBDIR)/libpthread.so.0 $(TARGETDIR)/lib/
+	install $(LIBDIR)/ld-uClibc.so.1 $(TARGETDIR)/lib/ && \
+		cd $(TARGETDIR)/lib/ && \
+		ln -sf ld-uClibc.so.1 ld-uClibc.so.0
+	install $(LIBDIR)/libcrypt.so.1 $(TARGETDIR)/lib/ && \
+		cd $(TARGETDIR)/lib/ && \
+		ln -sf libcrypt.so.1 libcrypt.so.0
+	install $(LIBDIR)/libpthread.so.1 $(TARGETDIR)/lib/ && \
+		cd $(TARGETDIR)/lib/ && \
+		ln -sf libpthread.so.1 libpthread.so.0
 	install $(LIBDIR)/libgcc_s.so.1 $(TARGETDIR)/lib/
 	$(STRIP) $(TARGETDIR)/lib/libgcc_s.so.1
-	install $(LIBDIR)/libc.so.0 $(TARGETDIR)/lib/
-	install $(LIBDIR)/libdl.so.0 $(TARGETDIR)/lib/
-	install $(LIBDIR)/libm.so.0 $(TARGETDIR)/lib/
-	install $(LIBDIR)/libnsl.so.0 $(TARGETDIR)/lib/
+	install $(LIBDIR)/libc.so.1 $(TARGETDIR)/lib/ && \
+		cd $(TARGETDIR)/lib/ && \
+		ln -sf libc.so.1 libc.so.0
+	install $(LIBDIR)/libdl.so.1 $(TARGETDIR)/lib/ && \
+		cd $(TARGETDIR)/lib/ && \
+		ln -sf libdl.so.1 libdl.so.0
+	install $(LIBDIR)/libm.so.1 $(TARGETDIR)/lib/ && \
+		cd $(TARGETDIR)/lib/ && \
+		ln -sf libm.so.1 libm.so.0
+	cd $(TARGETDIR)/lib/ && \
+		ln -sf libc.so.1 libnsl.so.0 && \
+		ln -sf libc.so.1 libnsl.so.1
 ifeq ($(RTCONFIG_SSH),y)
-	install $(LIBDIR)/libutil.so.0 $(TARGETDIR)/lib/
+	install $(LIBDIR)/libutil.so.1 $(TARGETDIR)/lib/ && \
+		cd $(TARGETDIR)/lib/ && \
+		ln -sf libutil.so.1 libutil.so.0
 endif
 endif
 
 ifneq ($(RTCONFIG_OPTIMIZE_SHARED_LIBS),y)
 ifeq ($(RTL8197F), y) # Realtek RTL8197F platform.
-	install $(LIBDIR)/libresolv.so.1 $(TARGETDIR)/lib/
-	$(STRIP) $(TARGETDIR)/lib/*.so.1
+	cd $(TARGETDIR)/lib/ && \
+		ln -sf libc.so.1 libresolv.so.0 && \
+		ln -sf libc.so.1 libresolv.so.1 && \
+		$(STRIP) $(TARGETDIR)/lib/*.so.*
 else
-	install $(LIBDIR)/libresolv.so.0 $(TARGETDIR)/lib/
-	$(STRIP) $(TARGETDIR)/lib/*.so.0
+	cd $(TARGETDIR)/lib/ && \
+		ln -sf libc.so.1 libresolv.so.0 && \
+		ln -sf libc.so.1 libresolv.so.1 && \
+		$(STRIP) $(TARGETDIR)/lib/*.so.*
 endif
 endif
 
@@ -3558,7 +3578,7 @@ quagga-install:
 	$(STRIP) $(INSTALLDIR)/quagga/usr/sbin/ripd
 	$(STRIP) $(INSTALLDIR)/quagga/usr/sbin/watchquagga
 ifneq ($(HND_ROUTER),y)
-	install -D $(shell dirname $(shell which $(CXX)))/../lib/librt.so.0 $(TARGETDIR)/lib/librt.so.0
+	install -D $(shell dirname $(shell which $(CXX)))/../lib/librt.so.1 $(TARGETDIR)/lib/librt.so.1
 else
 	install -D $(TOOLCHAIN)/arm-buildroot-linux-gnueabi/sysroot/lib/librt-2.22.so $(INSTALLDIR)/lib/librt.so.1
 endif
