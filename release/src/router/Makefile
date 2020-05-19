@@ -4192,7 +4192,7 @@ flac: flac/stamp-h1 libogg
 	@$(MAKE) -C flac/src/libFLAC all
 
 flac-clean:
-	-@$(MAKE) -C flac clean
+	-@$(MAKE) -C flac maintainer-clean distclean-am
 	@rm -f flac/stamp-h1
 
 flac-install: flac
