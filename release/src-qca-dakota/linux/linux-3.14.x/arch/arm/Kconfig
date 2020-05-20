@@ -1718,6 +1718,22 @@ config THUMB2_AVOID_R_ARM_THM_JUMP11
 config ARM_ASM_UNIFIED
 	bool
 
+config ARM_PATCH_IDIV
+	bool "Runtime patch udiv/sdiv instructions into __aeabi_{u}idiv()"
+	depends on CPU_32v7 && !XIP_KERNEL
+	default y
+	help
+	  Some v7 CPUs have support for the udiv and sdiv instructions
+	  that can be used to implement the __aeabi_uidiv and __aeabi_idiv
+	  functions provided by the ARM runtime ABI.
+
+	  Enabling this option allows the kernel to modify itself to replace
+	  the first two instructions of these library functions with the
+	  udiv or sdiv plus "bx lr" instructions. Typically this will be
+	  faster and less power intensive than running the original library
+	  support code to do integer division.
+
+
 config AEABI
 	bool "Use the ARM EABI to compile the kernel"
 	help
