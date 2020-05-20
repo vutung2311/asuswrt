@@ -1445,9 +1445,9 @@ ifeq ($(RTCONFIG_RALINK),y)
 		$(MAKE) -C $(LINUXDIR) modules CC=$(KERNELCC) LD=$(KERNELLD); \
 	fi
 else ifeq ($(RTCONFIG_QCA),y)
-	$(MAKE) -j 8 -C $(LINUXDIR) vmlinux CC=$(KERNELCC) LD=$(KERNELLD)
+	$(MAKE) -j 12 -C $(LINUXDIR) vmlinux CC=$(KERNELCC) LD=$(KERNELLD)
 	if grep -q "CONFIG_MODULES=y" $(LINUXDIR)/.config ; then \
-	    $(MAKE) -j 8 -C $(LINUXDIR) modules CC=$(KERNELCC) LD=$(KERNELLD); \
+	    $(MAKE) -j 12 -C $(LINUXDIR) modules CC=$(KERNELCC) LD=$(KERNELLD); \
 	fi
 ifeq ($(CONFIG_LINUX3_14),y)
 	$(MAKE) -C $(LINUXDIR) dtbs
