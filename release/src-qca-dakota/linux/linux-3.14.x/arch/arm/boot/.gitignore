@@ -1,0 +1,9 @@
+Image
+compressed/ashldi3.S
+compressed/bswapsdi2.S
+compressed/hyp-stub.S
+compressed/lib1funcs.S
+compressed/piggy.xzkern
+compressed/vmlinux
+compressed/vmlinux.lds
+zImage
