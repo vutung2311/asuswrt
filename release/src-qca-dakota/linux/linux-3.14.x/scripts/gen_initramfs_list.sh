@@ -262,7 +262,7 @@ case "$arg" in
                 && compr="bzip2 -9 -f -"
 		echo "$output_file" | grep -q "\.lzma$" \
                 && [ -x "`which lzma 2> /dev/null`" ] \
-                && compr="lzma e -d20 -lc1 -lp2 -pb2 -eos -si -so"
+                && compr="lzma -9 -f"
 		echo "$output_file" | grep -q "\.xz$" \
                 && [ -x "`which xz 2> /dev/null`" ] \
                 && compr="xz --check=crc32 --lzma2=dict=1MiB"
