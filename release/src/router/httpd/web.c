@@ -9822,12 +9822,8 @@ static int ej_usb_is_exist(int eid, webs_t wp, int argc, char_t **argv){
 int ej_shown_language_css(int eid, webs_t wp, int argc, char **argv){
 	char lang[4];
 	int len;
-#ifdef RTCONFIG_AUTODICT
 	unsigned char header[3] = { 0xef, 0xbb, 0xbf };
-	FILE *fp = fopen("Lang_Hdr.txt", "r");
-#else
 	FILE *fp = fopen("Lang_Hdr", "r");
-#endif
 	char buffer[1024], key[30], target[30];
 	char *follow_info, *follow_info_end;
 	int offset = 0;
@@ -9848,9 +9844,6 @@ int ej_shown_language_css(int eid, webs_t wp, int argc, char **argv){
 		while (1) {
 			memset(buffer, 0, sizeof(buffer));
 			if ((follow_info = fgets(buffer, sizeof(buffer), fp)) != NULL){
-	#ifdef RTCONFIG_AUTODICT
-				if (memcmp(buffer, header, 3) == 0) offset = 3;
-	#endif
 				if (strncmp(follow_info+offset, "LANG_", 5) || !strncmp(follow_info+offset, "LANG_select", 11))    // 5 = strlen("LANG_")
 					continue;
 
