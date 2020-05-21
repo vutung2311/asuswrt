@@ -4771,7 +4771,7 @@ ebtables-clean:
 
 lzo/stamp-h1:
 	cd lzo && \
-	CFLAGS="-Os -Wall $(EXTRACFLAGS)" $(CONFIGURE) --enable-shared --enable-static \
+	CFLAGS="-Os -Wall -std=c90 $(EXTRACFLAGS)" $(CONFIGURE) --enable-shared --enable-static \
 		--prefix=/usr \
 		--bindir=/usr/sbin \
 		--libdir=/usr/lib

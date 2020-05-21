@@ -50,13 +50,14 @@ RUN apt-get update && \
 
 ADD tools/openwrt-gcc463.arm.tar.bz2 /opt
 ADD tools/openwrt-gcc540.arm.tar.xz /opt
-ENV PATH "/opt/openwrt-gcc540.arm/bin:${PATH}"
-ENV STAGING_DIR "/opt/openwrt-gcc540.arm"
+ADD tools/openwrt-gcc630.arm.tar.xz /opt
+ENV PATH "/opt/openwrt-gcc630.arm/bin:${PATH}"
+ENV STAGING_DIR "/opt/openwrt-gcc630.arm"
 
-RUN ln -sf /opt/openwrt-gcc540.arm/lib/libuClibc-1.0.14.so /opt/openwrt-gcc540.arm/lib/libresolv.so.0 && \
-    ln -sf /opt/openwrt-gcc540.arm/lib/libuClibc-1.0.14.so /opt/openwrt-gcc540.arm/lib/libresolv.so && \
-    ln -sf /opt/openwrt-gcc540.arm/lib/libuClibc-1.0.14.so /opt/openwrt-gcc540.arm/lib/libnsl.so.0 && \
-    ln -sf /opt/openwrt-gcc540.arm/lib/libuClibc-1.0.14.so /opt/openwrt-gcc540.arm/lib/libnsl.so
+RUN ln -sf /opt/openwrt-gcc630.arm/lib/libuClibc-1.0.14.so /opt/openwrt-gcc630.arm/lib/libresolv.so.0 && \
+    ln -sf /opt/openwrt-gcc630.arm/lib/libuClibc-1.0.14.so /opt/openwrt-gcc630.arm/lib/libresolv.so && \
+    ln -sf /opt/openwrt-gcc630.arm/lib/libuClibc-1.0.14.so /opt/openwrt-gcc630.arm/lib/libnsl.so.0 && \
+    ln -sf /opt/openwrt-gcc630.arm/lib/libuClibc-1.0.14.so /opt/openwrt-gcc630.arm/lib/libnsl.so
 
 ENTRYPOINT [ "/bin/bash" ]
 CMD [ "-" ]

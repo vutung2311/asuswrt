@@ -15,7 +15,7 @@ export ARCH := arm
 export HOST := arm-linux
 export KERNELCC := $(CROSS_COMPILE)gcc
 export KERNELLD := $(CROSS_COMPILE)ld
-export TOOLS := /opt/openwrt-gcc540.arm
+export TOOLS := /opt/openwrt-gcc630.arm
 export RTVER := 1.0.14
 
 # Kernel load address and entry address
@@ -37,6 +37,8 @@ ifneq ($(IPQ40XX),)
 EXTRA_CFLAGS += -DLINUX3_14
 export CONFIG_LINUX3_14=y
 endif
+
+export EXTRA_CFLAGS
 
 SWITCH_CHIP_ID_POOL =
 

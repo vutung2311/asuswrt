@@ -28,7 +28,7 @@ OPENSSL_LDLIBS="-lssl -lcrypto"
 #NVRAM_LIBS="-lnvram"
 
 if [ "$QCA" = "y" ]; then
-	EXTRA_LDFLAGS="-L$LIBDIR -L$LIBDIR/gcc/arm-openwrt-linux-uclibcgnueabi/5.4.0 -lc -lm -ldl -lgcc_s"
+	EXTRA_LDFLAGS="-L$LIBDIR -L$LIBDIR/gcc/arm-openwrt-linux-uclibcgnueabi/6.3.0 -lc -lm -ldl -lgcc_s"
 fi
 
 if [ "$ALPINE" = "y" ]; then
