@@ -38,6 +38,8 @@ EXTRA_CFLAGS += -DLINUX3_14
 export CONFIG_LINUX3_14=y
 endif
 
+export EXTRA_CFLAGS
+
 SWITCH_CHIP_ID_POOL =
 
 define platformRouterOptions
