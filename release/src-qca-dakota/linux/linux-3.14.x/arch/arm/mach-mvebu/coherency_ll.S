@@ -54,5 +54,5 @@ ARM_BE8(rev	r1, r1)
 	dsb
 
 	mov	r0, #0
-	mov	pc, lr
+	ret	lr
 ENDPROC(ll_set_cpu_coherent)
